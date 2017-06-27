@@ -1,3 +1,18 @@
+## 2.4.1
+
+- Update gem versions of mechanize and faraday
+
+## 2.4.0
+
+- Add security measures for constantizing Exact Resources thanks to @confiks
+- Add possibility to filter on Date or Time. Added test for BankEntry. thanks to @confiks
+- Custom exception shouldn't inherit Exception. Use StandardError instead. thanks to @confiks
+- Let go of unecessary dev dependency versions
+
+## 2.3.3
+
+- Add bank accounts resource
+
 ## 2.3.2
 
 - Fix ruby_dep dependency
