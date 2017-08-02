@@ -16,7 +16,8 @@ module Elmas
       SHARED_LINE_ATTRIBUTES.inject(
         [
           :employee, :end_time, :line_number, :start_time, :subscription,
-          :VAT_amount_DC, :VAT_amount_FC, :GL_account, :discount, :unit_price
+          :VAT_amount_DC, :VAT_amount_FC, :GL_account, :discount, :unit_price,
+					:VAT_code
         ],
         :<<
       )

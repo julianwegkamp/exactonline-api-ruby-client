@@ -33,10 +33,10 @@ module Elmas
       @filters = options[:filters]
       @order_by = options[:order_by]
       @select = options[:select]
-      response = get(uri([:order, :select, :filters]))
+			
+			response = get(uri([:order, :select, :filters]))
       response.results if response
     end
-
     def find
       return nil unless id?
       response = get(uri([:id]))
@@ -61,8 +61,15 @@ module Elmas
     def save
       attributes_to_submit = sanitize
       if valid?
-        return @response = Elmas.post(base_path, params: attributes_to_submit) unless id?
-        return @response = Elmas.put(basic_identifier_uri, params: attributes_to_submit)
+				# FIX add id to the @attributes after save
+				
+				if id?
+					@response = Elmas.put(basic_identifier_uri, params: attributes_to_submit)
+				else
+					@response = Elmas.post(base_path, params: attributes_to_submit)
+					@attributes[:id] = @response.results.first.id
+					@response
+				end
       else
         Elmas.error("Invalid Resource #{self.class.name}, attributes: #{@attributes.inspect}")
         Elmas::Response.new(Faraday::Response.new(status: 400, body: "Invalid Request"))

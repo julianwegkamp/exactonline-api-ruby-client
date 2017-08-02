@@ -55,6 +55,10 @@ module Elmas
         end
         request.headers = add_headers(options)
       end
+			
+			## TODO REMOVE!!
+			Elmas.info(response.inspect)
+			
       Response.new(response)
     end
   end

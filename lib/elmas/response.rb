@@ -7,7 +7,7 @@ module Elmas
 
     def initialize(response)
       @response = response
-      raise_and_log_error if fail?
+			raise_and_log_error if fail?
     end
 
     def success?
@@ -19,7 +19,7 @@ module Elmas
     end
 
     def parsed
-      Parser.new(body)
+				Parser.new(body)
     end
 
     def result
